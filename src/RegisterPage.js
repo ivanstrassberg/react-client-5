@@ -3,6 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import './RegisterPage.css'; // Import the CSS file
 
 function Registration() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password_hash, setPassword] = useState('');
   const [success, setSuccess] = useState(false); // Track registration success
@@ -11,7 +12,7 @@ function Registration() {
 
   const handleSubmit = (e) => {
     e.preventDefault(); // Prevent form default behavior
-  
+    
     // Reset errors before sending the request
     setEmailError(null);
     setGeneralError(null);
@@ -81,7 +82,7 @@ function Registration() {
           <div className="popup-content">
             <h2>Registration Successful!</h2>
             <p>Your account has been created. Click below to log in.</p>
-            <button onClick={() => window.location.href = 'https://go-foodstore-server-production.up.railway.app/login'} className="login-button">Go to Login</button>
+            <button onClick={() => navigate("/login")} className="login-button">Go to Login</button>
           </div>
         </div>
       )}
