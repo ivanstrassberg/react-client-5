@@ -121,7 +121,7 @@ function ProductDetail() {
   return (
     <div style={containerStyle}>
       <div style={imageContainerStyle}>
-        <img src={`/img/${id}.png`} alt={product.name} style={imageStyle} />
+        <img src={`react-test/testapp/public/fimages/${id}.png`} alt={product.name} style={imageStyle} />
       </div>
       <div style={textContainerStyle}>
         <h1>{product.name}</h1>
