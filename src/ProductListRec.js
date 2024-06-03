@@ -79,7 +79,7 @@ function ProductCard({ product, inCart, onAddToCart }) {
   return (
     <div style={cardStyle}>
       <div style={imageContainerStyle}>
-        <img src={`react-test/testapp/public/fimages/${product.id}.png`} alt={product.name} style={imageStyle} />
+        <img src={`../public/img/${product.id}.png`} alt={product.name} style={imageStyle} />
       </div>
       <div style={textContainerStyle}>
         <Link to={`/product/${product.id}`} style={linkStyle}>
