@@ -81,7 +81,7 @@ function Registration() {
           <div className="popup-content">
             <h2>Registration Successful!</h2>
             <p>Your account has been created. Click below to log in.</p>
-            <button onClick={() => window.location.href = '/login'} className="login-button">Go to Login</button>
+            <button onClick={() => window.location.href = 'https://go-foodstore-server-production.up.railway.app/login'} className="login-button">Go to Login</button>
           </div>
         </div>
       )}
