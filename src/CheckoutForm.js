@@ -51,7 +51,7 @@ export default function CheckoutForm() {
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        return_url: "https://go-foodstore-server-production.up.railway.app/products",
+        return_url: "https://garbajj.netlify.app/",
         receipt_email: email,
       },
     });
