@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-
+// import './ProductImg.css';
 const sliderStyle = {
   width: '100%',
   height: '50px',
@@ -153,7 +153,7 @@ function ProductCard({ product, inCart, onAddToCart }) {
   return (
     <div style={cardStyle}>
       <div style={imageContainerStyle}>
-        <img src={`https://naturesnookshop.netlify.app/public/img/${product.id}.png`} alt={product.name} style={imageStyle} />
+        <img src={`https://naturesnookshop.netlify.app/img/${product.id}.png`} alt={product.name} style={imageStyle} />
       </div>
       <div style={textContainerStyle}>
         <Link to={`/product/${product.id}`} style={linkStyle}>

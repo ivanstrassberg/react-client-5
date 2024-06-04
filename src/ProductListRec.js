@@ -20,7 +20,8 @@ const cardStyle = {
 };
 
 const imageContainerStyle = {
-  marginRight: '20px',
+  // marginRight: '20px',
+  // backgroundImage: 'about.png',
 };
 
 const imageStyle = {
@@ -79,7 +80,7 @@ function ProductCard({ product, inCart, onAddToCart }) {
   return (
     <div style={cardStyle}>
       <div style={imageContainerStyle}>
-        <img src={`https://naturesnookshop.netlify.app/public/img/${product.id}.png`} alt={product.name} style={imageStyle} />
+        <img src={`https://naturesnookshop.netlify.app/img/${product.id}.png`} alt={product.name} style={imageStyle} />
       </div>
       <div style={textContainerStyle}>
         <Link to={`/product/${product.id}`} style={linkStyle}>

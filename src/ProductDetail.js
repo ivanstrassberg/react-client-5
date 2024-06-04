@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-
+// import './ProductImg.css';
 const containerStyle = {
   display: 'flex',
   alignItems: 'center',
@@ -120,8 +120,8 @@ function ProductDetail() {
 
   return (
     <div style={containerStyle}>
-      <div style={imageContainerStyle}>
-        <img src={`https://naturesnookshop.netlify.app/public/img/${id}.png`} alt={product.name} style={imageStyle} />
+      <div >
+        <img src={`https://naturesnookshop.netlify.app/img/${id}.png`} alt={product.name} style={imageStyle} />
       </div>
       <div style={textContainerStyle}>
         <h1>{product.name}</h1>
@@ -129,7 +129,7 @@ function ProductDetail() {
         <p style={textStyle}>Price: {product.price.toFixed(2)} руб.</p>
         <p style={textStyle}>Stock: {product.stock}</p>
         <p style={textStyle}>Rating: {product.rating}</p>
-        <button style={inCart ? buttonHoverStyle : buttonStyle} onClick={handleButtonClick} disabled={inCart}>
+        <button style={inCart ? buttonHoverStyle : buttonStyle} onClick={handleButtonClick}>
           {inCart ? "To Cart" : "Add to Cart"}
         </button>
       </div>
