@@ -27,7 +27,6 @@ const Hero = () => {
           </li>
           <li className="about-item">
             <p>{svgIcon} Ежедневно клиенты выбирают нас и становятся постоянными покупателями, доверяя нам свои приемы пищи.</p>
-            
           </li>
           <li><button onClick={() => navigate("/products")} className="login-button">Наше Меню</button></li>
         </ul>
