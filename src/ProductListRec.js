@@ -20,8 +20,8 @@ const cardStyle = {
 };
 
 const imageContainerStyle = {
-  // marginRight: '20px',
-  // backgroundImage: 'about.png',
+  flex: '1', 
+  marginRight: '20px', 
 };
 
 const imageStyle = {

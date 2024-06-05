@@ -13,8 +13,8 @@ const containerStyle = {
 };
 
 const imageContainerStyle = {
-  flex: '1', // Take up remaining space
-  marginRight: '20px', // Add space between image and text
+  flex: '1', 
+  marginRight: '20px', 
 };
 
 const imageStyle = {
