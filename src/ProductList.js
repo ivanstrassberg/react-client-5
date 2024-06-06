@@ -97,7 +97,7 @@ const cardStyle = {
 };
 
 const imageContainerStyle = {
-  flex: '1', 
+  // flex: '1', 
   marginRight: '20px', 
 };
 
