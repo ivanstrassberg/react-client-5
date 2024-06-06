@@ -97,8 +97,8 @@ const stripePromise = loadStripe("pk_test_51PGBY6RsvEv5vPVlHUbe5pB27TSwBnFGH7t93
                   <button type="submit">Search</button>
                 </form> */}
                   <li><Link to="/">Главная</Link></li>
-                  <li><Link to="/cart">Корзина</Link></li>
                   <li><Link to="/products">Меню</Link></li>
+                  <li><Link to="/cart">Корзина</Link></li>
                   {!isLoggedIn && (
                     <>
                       <li><Link to="/login">Войти</Link></li>
@@ -108,7 +108,7 @@ const stripePromise = loadStripe("pk_test_51PGBY6RsvEv5vPVlHUbe5pB27TSwBnFGH7t93
                   {isLoggedIn && (
                     <li className="profile-menu">
                       <img
-                        src="https://via.placeholder.com/50"
+                        src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
                         alt="Profile"
                         className="profile-img"
                         onClick={() => setMenuOpen(!menuOpen)}
@@ -142,15 +142,15 @@ const stripePromise = loadStripe("pk_test_51PGBY6RsvEv5vPVlHUbe5pB27TSwBnFGH7t93
                   <div className="mobile-menu">
                     <ul>
                       <li><Link to="/" onClick={() => setMobileMenuOpen(false)}>Главная</Link></li>
+                      <li><Link to="/products" onClick={() => setMobileMenuOpen(false)}>Меню</Link></li>
                       {!isLoggedIn && (
                         <>
                           <li><Link to="/login" onClick={() => setMobileMenuOpen(false)}>Войти</Link></li>
                           {/* <li><Link to="/register" onClick={() => setMobileMenuOpen(false)}>Register</Link></li> */}
                         </>
                       )}
-                      
                       <li><Link to="/cart" onClick={() => setMobileMenuOpen(false)}>Корзина</Link></li>
-                      <li><Link to="/products" onClick={() => setMobileMenuOpen(false)}>Меню</Link></li>
+                      
                       <br></br>
                       {isLoggedIn && (
                         <>

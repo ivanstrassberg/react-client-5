@@ -120,15 +120,15 @@ function ProductDetail() {
 
   return (
     <div style={containerStyle}>
-      <div >
+      <div style={imageContainerStyle} >
         <img src={`https://naturesnookshop.netlify.app/img/${id}.png`} alt={product.name} style={imageStyle} />
       </div>
       <div style={textContainerStyle}>
         <h1>{product.name}</h1>
-        <p style={textStyle}>Description: {product.description}</p>
-        <p style={textStyle}>Price: {product.price.toFixed(2)} руб.</p>
-        <p style={textStyle}>Stock: {product.stock}</p>
-        <p style={textStyle}>Rating: {product.rating}</p>
+        <p style={textStyle}>О продукте: {product.description}</p>
+        <p style={textStyle}>Цена: {product.price.toFixed(2)} ₽.</p>
+        {/* <p style={textStyle}>Stock: {product.stock}</p> */}
+        {/* <p style={textStyle}>Rating: {product.rating}</p> */}
         <button style={inCart ? buttonHoverStyle : buttonStyle} onClick={handleButtonClick}>
           {inCart ? "To Cart" : "Add to Cart"}
         </button>

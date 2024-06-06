@@ -4,7 +4,6 @@ import { Link, useNavigate } from 'react-router-dom';
 const sliderStyle = {
   width: '100%',
   height: '50px',
-  // backgroundColor: '#f6f6f6',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -116,6 +115,12 @@ const textContainerStyle = {
   justifyContent: 'space-between',
 };
 
+const productNameStyle = {
+  whiteSpace: 'nowrap',
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
+};
+
 const buttonStyle = {
   backgroundColor: '#a1bd4d',
   border: 'none',
@@ -158,7 +163,7 @@ function ProductCard({ product, inCart, onAddToCart }) {
       </div>
       <div style={textContainerStyle}>
         <Link to={`/product/${product.id}`} style={linkStyle}>
-          <h2>{product.name} {categoryEmoji[product.category]}</h2>
+          <h2 style={productNameStyle}>{product.name} {categoryEmoji[product.category]}</h2>
         </Link>
         <p>Price: {product.price.toFixed(2)} руб.</p>
         <button style={inCart ? buttonHoverStyle : buttonStyle} onClick={handleButtonClick}>
@@ -230,21 +235,20 @@ function ProductList() {
   return (
     <div>
       <CategorySlider
-            onChange={setSelectedCategory} 
-            />
-            <div style={containerStyle}>
-              {filteredProducts.map((product) => (
-                <ProductCard 
-                  key={product.id} 
-                  product={product} 
-                  inCart={cart.includes(product.id)} 
-                  onAddToCart={handleAddToCart} 
-                />
-              ))}
-            </div>
-          </div>
-        );
-      }
-      
-      export default ProductList;
-      
+        onChange={setSelectedCategory} 
+      />
+      <div style={containerStyle}>
+        {filteredProducts.map((product) => (
+          <ProductCard 
+            key={product.id} 
+            product={product} 
+            inCart={cart.includes(product.id)} 
+            onAddToCart={handleAddToCart} 
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default ProductList;

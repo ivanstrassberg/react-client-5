@@ -98,13 +98,16 @@ function ProductCard({ product, inCart, onAddToCart }) {
 function ProductListRec() {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [displayedProducts, setDisplayedProducts] = useState([]);
 
   useEffect(() => {
     fetch('https://go-foodstore-server-production.up.railway.app/products')
       .then((response) => response.json())
       .then((data) => {
         setProducts(data);
+        const start = Math.floor(Math.random() * 15);
+        const end = Math.min(start + 2, data.length);
+        setDisplayedProducts(data.slice(start, end));
       })
       .catch((error) => {
         console.error('Error fetching products:', error);
@@ -149,14 +152,6 @@ function ProductListRec() {
     }
   };
 
-  const filteredProducts = selectedCategory
-    ? products.filter((product) => product.category_id === selectedCategory)
-    : products;
-
-  const start = Math.floor(Math.random() * 15);
-  const end = Math.min(start + 2, filteredProducts.length);
-  const displayedProducts = filteredProducts.slice(start, end);
-    
   return (
     <div>
       <h2 style={h2Style}>Ваши персональные рекомендации</h2>
