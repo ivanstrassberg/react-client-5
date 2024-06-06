@@ -116,7 +116,6 @@ const textContainerStyle = {
 };
 
 const productNameStyle = {
-  whiteSpace: 'nowrap',
   overflow: 'hidden',
   textOverflow: 'ellipsis',
 };
