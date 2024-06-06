@@ -48,10 +48,10 @@ function Registration() {
 
   return (
     <div className="login-container">
-      <h2>Register</h2>
+      <h2>Зарегистрироваться</h2>
       <form onSubmit={handleSubmit} className="login-form">
         <div className="form-group">
-          <label>Email</label>
+          <label>Электронная почта</label>
           <input
             type="email"
             value={email}
@@ -61,7 +61,7 @@ function Registration() {
           {emailError && <div className="message">{emailError}</div>}
         </div>
         <div className="form-group">
-          <label>Password</label>
+          <label>Пароль</label>
           <input
             type="password"
             value={password_hash}
@@ -69,7 +69,7 @@ function Registration() {
             required
           />
         </div>
-        <button type="submit" className="login-button">Register</button>
+        <button type="submit" className="login-button">Подтвердить</button>
         <br></br>
         <br></br>
         <Link to="/login" className="register-link">Уже знакомы?</Link>
@@ -80,9 +80,9 @@ function Registration() {
       {success && (
         <div className="popup">
           <div className="popup-content">
-            <h2>Registration Successful!</h2>
-            <p>Your account has been created. Click below to log in.</p>
-            <button onClick={() => navigate("/login")} className="login-button">Go to Login</button>
+            <h2>Вы зарегистрировались!</h2>
+            <p>Учетная запись была создана. Нажмите на кнопку ниже для перехода на страницу входа.</p>
+            <button onClick={() => navigate("/login")} className="login-button">Войти</button>
           </div>
         </div>
       )}

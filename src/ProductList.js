@@ -55,25 +55,25 @@ function CategorySlider({ onChange }) {
         style={sliderButtonStyle}
         onClick={() => handleSliderChange(1)}
       >
-        {selectedCategory === 1 ? '🍲' : 'Meals'}
+        {selectedCategory === 1 ? '🍲' : 'Блюда'}
       </button>
       <button
         style={sliderButtonStyle}
         onClick={() => handleSliderChange(2)}
       >
-        {selectedCategory === 2 ? '🥤' : 'Drinks'}
+        {selectedCategory === 2 ? '🥤' : 'Напитки'}
       </button>
       <button
         style={sliderButtonStyle}
         onClick={() => handleSliderChange(3)}
       >
-        {selectedCategory === 3 ? '🍎' : 'Fruits'}
+        {selectedCategory === 3 ? '🍎' : 'Свежее'}
       </button>
       <button
         style={sliderButtonStyle}
         onClick={handleCancel}
       >
-        Cancel
+        Очистить выбор
       </button>
     </div>
   );
@@ -164,7 +164,7 @@ function ProductCard({ product, inCart, onAddToCart }) {
         <Link to={`/product/${product.id}`} style={linkStyle}>
           <h2 style={productNameStyle}>{product.name} {categoryEmoji[product.category]}</h2>
         </Link>
-        <p>Price: {product.price.toFixed(2)} руб.</p>
+        <p>Цена: {product.price.toFixed(2)} ₽.</p>
         <button style={inCart ? buttonHoverStyle : buttonStyle} onClick={handleButtonClick}>
           {inCart ? "To Cart" : "Add to Cart"}
         </button>

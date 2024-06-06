@@ -30,8 +30,12 @@ body {
   font-weight: 400;
   margin: 2em;
 }
-
+* {
+  text-decoration: none;
+  color: inherit;
+}
 .header {
+  
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -161,6 +165,13 @@ form {
 
 .logo {
   flex: 1;
+  
+  display: flex;
+  font-family: "Alumni Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: italic;
+  align-items: center;
 }
 
 .desktop-menu {

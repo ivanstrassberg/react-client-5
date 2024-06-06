@@ -22,6 +22,11 @@ import UnauthorizedPage from './UnauthorizedPage';
 import ProductSearch from './ProductSearch';
 import RenderHtmlPage from './RenderHTML';
 import ProductListRec from './ProductListRec'
+
+const h3logo = {
+  "textDecoration": "none",
+  "fontWeight": "900"
+};
 // Make sure to call loadStripe outside of a component’s render to avoid
 // recreating the Stripe object on every render.
 // This is your test publishable API key.
@@ -82,9 +87,10 @@ const stripePromise = loadStripe("pk_test_51PGBY6RsvEv5vPVlHUbe5pB27TSwBnFGH7t93
         <nav className="navbar">
           <div className="container">
             <div className="navbar-wrap">
-              <div className="logo">
-                <Link to="/">{svgIcon}</Link>
-              </div>
+            <div className="logo">
+      <Link to="/">{svgIcon}</Link>
+      <Link to="/"><h3>Naturesnook</h3></Link>
+    </div>
               <div className="desktop-menu">
                 <ul className="navbar-menu">
                 {/* <form onSubmit={handleSearch} className="search-form">

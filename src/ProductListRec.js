@@ -86,7 +86,7 @@ function ProductCard({ product, inCart, onAddToCart }) {
         <Link to={`/product/${product.id}`} style={linkStyle}>
           <h2>{product.name} {categoryEmoji[product.category]}</h2>
         </Link>
-        <p>Price: {product.price.toFixed(2)} руб.</p>
+        <p>Цена: {product.price.toFixed(2)} ₽.</p>
         <button style={inCart ? buttonHoverStyle : buttonStyle} onClick={handleButtonClick}>
           {inCart ? "To Cart" : "Add to Cart"}
         </button>
