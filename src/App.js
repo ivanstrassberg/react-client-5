@@ -222,7 +222,7 @@ function App() {
         <Route path="/unauthorized" element={<UnauthorizedPage />} /> {/* Unauthorized page */}
         <Route path="/search/:key" element={<ProductSearch />} /> {/* Search results */}
         <Route path="/orders" element={<Orders />} />
-        
+
         {clientSecret && (
           <Route path="/checkout" element={
             <Elements options={options} stripe={stripePromise}>

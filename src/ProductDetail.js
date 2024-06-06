@@ -115,7 +115,7 @@ function ProductDetail() {
   };
 
   if (!product) {
-    return <div>Product does not exist</div>;
+    return <div>Продукта не существует.</div>;
   }
 
   return (
@@ -130,7 +130,7 @@ function ProductDetail() {
         {/* <p style={textStyle}>Stock: {product.stock}</p> */}
         {/* <p style={textStyle}>Rating: {product.rating}</p> */}
         <button style={inCart ? buttonHoverStyle : buttonStyle} onClick={handleButtonClick}>
-          {inCart ? "To Cart" : "Add to Cart"}
+          {inCart ? "В корзину" : "Добавить"}
         </button>
       </div>
     </div>

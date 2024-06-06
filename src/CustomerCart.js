@@ -4,6 +4,7 @@ import './CartPage.css';
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from './CheckoutForm';
+import Modal from './Modal';
 
 const stripePromise = loadStripe("pk_test_51PGBY6RsvEv5vPVlHUbe5pB27TSwBnFGH7t93QSkoef6FEy1hobnSCmWSJDk3cnQgj1Wrf9TybhyEyu79ZEtuNST00aSiTI6Vg");
 
@@ -11,6 +12,7 @@ const CartPage = () => {
   const [products, setProducts] = useState([]);
   const [clientSecret, setClientSecret] = useState("");
   const [error, setError] = useState(null);
+  const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -114,6 +116,7 @@ const CartPage = () => {
       })
       .then((data) => {
         setClientSecret(data.clientSecret);
+        setIsCheckoutOpen(true);
       })
       .catch((err) => {
         setError(err.message);
@@ -124,14 +127,22 @@ const CartPage = () => {
 
   return (
     <div className="cart-container">
-      <h1 className="cart-title">Your Cart</h1>
+      <h1 className="cart-title">Ваша корзина</h1>
       {error ? (
-        <p className="cart-error">Error: {error}</p>
+        <p className="cart-error">Ошибка: {error}</p>
       ) : (
         <>
           <ul className="cart-list">
             {products.length === 0 ? (
-              <li className="cart-empty">Your cart is empty</li>
+              <>
+                <li className="cart-empty">Пока Ваша корзина пуста.</li>
+                <button
+                  className="cart-checkout"
+                  onClick={() => navigate('/products')}
+                >
+                  Перейти к товарам
+                </button>
+              </>
             ) : (
               products.map((product) => (
                 <li className="cart-item" key={product.id}>
@@ -142,7 +153,7 @@ const CartPage = () => {
                       navigate(`/product/${product.id}`);
                     }}
                   >
-                    {product.name} - {product.price.toFixed(2)} руб.
+                    {product.name} - {product.price.toFixed(2)} ₽.
                   </a>
                   <div className="cart-quantity">
                     <button onClick={() => decreaseQuantity(product.id)}> - </button>
@@ -153,29 +164,36 @@ const CartPage = () => {
                     className="cart-delete"
                     onClick={() => handleDelete(product.id)}
                   >
-                    Delete
+                    Удалить
                   </button>
                 </li>
               ))
             )}
           </ul>
           <div className="cart-total">
-            <h2>Total: {total.toFixed(2)} руб. </h2>
+            <h2>Итог: {total.toFixed(2)} ₽. </h2>
           </div>
         </>
       )}
-      {clientSecret ? (
-        <Elements options={{ clientSecret }} stripe={stripePromise}>
-          <CheckoutForm />
-        </Elements>
-      ) : (
-        <button
-          className="cart-checkout"
-          onClick={() => handleCheckout()}
-        >Checkout</button>
+      {products.length > 0 && (
+        <>
+          <button
+            className="cart-checkout"
+            onClick={() => handleCheckout()}
+          >Оплата</button>
+          {clientSecret && (
+            <Modal isOpen={isCheckoutOpen} onClose={() => setIsCheckoutOpen(false)}>
+              <Elements options={{ clientSecret }} stripe={stripePromise}>
+                <CheckoutForm />
+              </Elements>
+            </Modal>
+          )}
+        </>
       )}
     </div>
   );
 };
 
 export default CartPage;
+
+

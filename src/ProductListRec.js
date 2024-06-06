@@ -88,7 +88,7 @@ function ProductCard({ product, inCart, onAddToCart }) {
         </Link>
         <p>Цена: {product.price.toFixed(2)} ₽.</p>
         <button style={inCart ? buttonHoverStyle : buttonStyle} onClick={handleButtonClick}>
-          {inCart ? "To Cart" : "Add to Cart"}
+          {inCart ? "В корзину" : "Добавить"}
         </button>
       </div>
     </div>
